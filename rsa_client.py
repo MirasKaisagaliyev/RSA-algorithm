@@ -7,8 +7,8 @@ import os
 def encrypt_decrypt_cycle(encryptor, decryptor):
     print("Public Key encryptor ", encryptor.public_key)
     print("Private Key encryptor ", encryptor.private_key)
-    print("Friends Key encryptor ", encryptor.friend_Key)
-    print("Friends Key decryptor ", decryptor.friend_Key)
+    print("Friends Key encryptor ", encryptor.friend_key)
+    print("Friends Key decryptor ", decryptor.friend_key)
     print("Public Key decryptor ", decryptor.public_key)
     print("Private Key decryptor ", decryptor.private_key)
 
@@ -43,11 +43,12 @@ def encrypt_decrypt_cycle(encryptor, decryptor):
 
 
 def Main():
-    encryptor = RSA(17, 19)
+    #Encrypting stuffs using public key of another person
+    encryptor = RSA(17, 19) #mandatory to be more than 17
     decryptor = RSA(17, 23)
 
-    decryptor.friend_Key = encryptor.public_key
-    encryptor.friend_Key = decryptor.public_key
+    decryptor.friend_key = encryptor.public_key
+    encryptor.friend_key = decryptor.public_key
 
     encrypt_decrypt_cycle(encryptor, decryptor)
 
